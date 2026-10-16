@@ -1,0 +1,5 @@
+Contact: mailto:babasitarampro@gmail.com
+Expires: 2027-10-16T00:00:00.000Z
+Preferred-Languages: hi, en
+Policy: https://github.com/ramhardamp/babasitaram-pro/blob/main/SECURITY.md
+Canonical: https://ramhardamp.github.io/babasitaram-pro/.well-known/security.txt
