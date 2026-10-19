@@ -32,3 +32,14 @@ Format: Issue -> Fix -> Logic
 6. LICENSE holder -> "Vikram Singh Rajput and BABASITARAM PRO Contributors"; SECURITY.md ka placeholder email -> babasitarampro@gmail.com.
 7. JSON-LD author me name + email + GitHub.
 Note: Terms/Disclaimer general template hain — publish se pehle kisi lawyer se check karwa lein.
+
+## Round 3 (Password Manager screenshots)
+1. Issue: gallery me Password Manager ka alag option nahi tha (sirf Android/Extension) -> Fix: 3 tabs (🔐 Password Manager, 🛡️ Privacy Shield, 📒 Digital Khata) + "All".
+2. Password Manager ke 8 slots (6 phone + 2 browser) + `SHOTS` config list: ek line = ek naya screenshot.
+3. Sirf upload hui images dikhti hain; khaali category ka tab chhup jata hai (koi adhoora/placeholder box nahi). Koi bhi image na ho to "Screenshots coming soon".
+4. Format auto-detect (png/webp/jpg), phone/wide alag shape, lightbox me prev/next + arrow keys, Hindi/English captions.
+
+## Round 4 (UI polish + extension screenshot size)
+1. Issue: screenshots crop hoke mobile shape me dikh rahe the -> Fix: asli aspect ratio, koi crop nahi. Extension = browser-window frame (1280x800), phone = phone frame, `popup` = chhota frame.
+2. Skip-link ka top-left par dikhta cyan block fix; hero badge ab center me (full-width stretch nahi).
+3. Polish: smooth scroll, nav-offset anchors, focus-visible ring, card hover, reduced-motion support, frames/shadows.
