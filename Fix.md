@@ -43,3 +43,14 @@ Note: Terms/Disclaimer general template hain — publish se pehle kisi lawyer se
 1. Issue: screenshots crop hoke mobile shape me dikh rahe the -> Fix: asli aspect ratio, koi crop nahi. Extension = browser-window frame (1280x800), phone = phone frame, `popup` = chhota frame.
 2. Skip-link ka top-left par dikhta cyan block fix; hero badge ab center me (full-width stretch nahi).
 3. Polish: smooth scroll, nav-offset anchors, focus-visible ring, card hover, reduced-motion support, frames/shadows.
+
+## Round 5 (teeno products ke screenshots)
+1. Issue: sirf ek product ke screenshots dikh rahe the -> Karan: gallery sirf fixed naam (pm-01/ext-01/khata-01) dhoondhti thi aur jis category me naam match nahi hota tha uska tab chhupa deti thi.
+2. Fix: auto-discover (har product ke kai prefix: pm/pm-web/android, ext/shield, khata), .png/.jpg/.jpeg/.webp/.PNG/.JPG, gap allowed, optional screenshots.json kisi bhi file naam ke liye.
+3. Teeno product tabs hamesha dikhte hain + image count; khaali tab me "coming soon". Frame image ke size se auto (landscape = browser, portrait = phone).
+4. Test: android-01.png, android-02.jpg, ext-01.PNG, ext-02.png, khata-01.jpg, khata-03.png (gap) — teeno tabs me sahi dikhe, JS error 0.
+
+## Round 6 (4 products)
+1. Issue: Password Manager ek tab me tha, jabki 4 products hain -> Fix: 4 tabs: Password Manager ऐप, Password Manager एक्सटेंशन, Privacy Shield, Digital Khata.
+2. Prefix: pm-app/pm/android = ऐप; pm-ext/pm-web = एक्सटेंशन; ext/shield = Privacy Shield; khata = Digital Khata.
+3. Sirf `pm-NN` naam ho to portrait = ऐप, landscape = एक्सटेंशन (auto).
