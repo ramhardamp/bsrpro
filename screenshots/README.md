@@ -1,36 +1,33 @@
-# Screenshots kaise dalein (v2)
+# Screenshots kaise dalein (v4 — auto)
 
-1. Image is folder me daalein. Format **png / webp / jpg** — koi bhi chalega (naam same, extension aap ka).
-2. Naam neeche ki table jaisa rakhein. **Sirf wahi images dikhengi jo upload hui hongi** — khaali slot website par nahi dikhte.
-3. Kisi category me ek bhi image nahi hogi to uska tab apne aap chhup jayega.
+Images is folder me daalein. **Koi code/config badalne ki zaroorat nahi** — website khud dhoondh leti hai.
 
-## Password Manager (tab: 🔐 पासवर्ड मैनेजर)
-| File | Kya dikhana hai | Shape |
+## Naam ka niyam: `<prefix>-01`, `-02`, `-03` ...
+| Product | Prefix (koi bhi ek) | Example |
 |---|---|---|
-| pm-01 | Lock / PIN screen | phone (portrait) |
-| pm-02 | Vault — password list | phone |
-| pm-03 | Add / Edit password | phone |
-| pm-04 | Password details | phone |
-| pm-05 | Security settings | phone |
-| pm-06 | Backup / Restore | phone |
-| pm-web-01 | Browser password manager | wide (landscape) |
-| pm-web-02 | Browser vault | wide |
+| 🔐 Password Manager **ऐप** (Android) | `pm-app`, `pm`, `android` | pm-app-01.png, android-02.png |
+| 🧩 Password Manager **एक्सटेंशन** (browser) | `pm-ext`, `pm-web` | pm-ext-01.png, pm-web-01.jpg |
+| 🛡️ Privacy Shield (extension) | `ext`, `shield` | ext-01.png, shield-02.webp |
+| 📒 Digital Khata (app) | `khata` | khata-01.png |
 
-## Privacy Shield: ext-01 Monitor · ext-02 Ad blocking · ext-03 Focus · ext-04 Emergency Burn (wide)
-## Digital Khata: khata-01 Home · khata-02 Ledger (phone)
+- Extension: png / jpg / jpeg / webp (aur .PNG / .JPG) — sab chalenge. Har prefix me 15 tak images.
+- Beech me ek number chhoot jaye (01, 03) to bhi chalega; do lagataar number chhootne par aage nahi dhoondhta.
+- **Frame/size apne aap tay hota hai:** landscape image (jaise 1280x800) = browser-window frame, portrait (720x1520) = phone frame. Koi crop nahi.
+- Chaaron products ke tabs hamesha dikhte hain. Jis product ki image nahi, usme "जल्द आएँगे" dikhta hai.
 
-## Aur screenshots badhane ke liye
-`index.html` me `var SHOTS=[ ... ]` list dhoondhein aur ek line add karein:
-`{id:'pm-07',cat:'pm',plat:'phone',hi:'हिंदी नाम',en:'English name'},`
-phir `screenshots/pm-07.png` daal dein. `cat` = pm / shield / khata. Naya tab chahiye to `CATS` list me ek line add karein.
+**Tip:** sirf `pm-01...` naam diya ho to website khud tay kar leti hai — portrait image = Password Manager ऐप, landscape image = Password Manager एक्सटेंशन.
 
-**Zaroori:** asli password, email, UPI, phone number screenshot me blur/hide karke hi daalein. Phone screenshots ~720x1520 (portrait), **extension/browser screenshots 1280x800 (16:10, Chrome/Firefox/Edge store ka standard size, poori browser window)**, har image 200 KB se kam (webp best).
+## Agar aapki files ke naam alag hain
+`screenshots/screenshots.json` banayein:
+```json
+[
+  {"file": "mera-vault.png", "cat": "pmapp", "hi": "Vault सूची", "en": "Vault List"},
+  {"file": "dashboard.jpg", "cat": "shield", "hi": "डैशबोर्ड", "en": "Dashboard"},
+  {"file": "udhaar.png", "cat": "khata", "hi": "उधार खाता", "en": "Udhaar Ledger"}
+]
+```
+`cat` = `pmapp` (PM ऐप) / `pmext` (PM एक्सटेंशन) / `shield` / `khata`.
 
-## Size guide (koi crop nahi hota — image apne asli size me dikhti hai)
-| Type | `plat` | Size | Frame |
-|---|---|---|---|
-| Android / mobile | `phone` | 720x1520 | phone frame |
-| Extension / browser (full window) | `wide` | **1280x800** | browser window frame |
-| Sirf chhota extension popup | `popup` | jaisa popup hai (~400x600) | chhota browser frame |
-
-Extension ke liye: browser me extension chalu rakhein, window ko 1280x800 par set karein aur poora screenshot lein (popup/dashboard dikhna chahiye).
+## Size
+Extension/browser **1280x800**, phone ~720x1520, har image 200 KB se kam (webp best).
+**Asli password, email, UPI, phone number blur karke hi daalein.**
