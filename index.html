@@ -1035,6 +1035,44 @@
         .dev-actions{display:flex;gap:10px;flex-wrap:wrap}.dev-actions .ext-btn{padding:10px 16px;font-size:14px}
         @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
         @media(max-width:560px){.dev-card{flex-direction:column;text-align:center}.dev-actions{justify-content:center}}
+    
+        /* ===== Gallery v2 (added) ===== */
+        .shot-grid{align-items:start}
+        .shot-wide{grid-column:span 2}.shot-wide .shot-btn{aspect-ratio:16/10}
+        .shot-btn img{position:static;display:block;width:100%;height:100%;object-fit:cover}
+        .shot-phone .shot-btn img{object-fit:cover}
+        .shot-empty{grid-column:1/-1;text-align:center;color:var(--text-secondary);padding:40px 0}
+        .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;font-size:28px;cursor:pointer}
+        .lb-prev{left:16px}.lb-next{right:16px}
+        .lb-cap{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#fff;font-size:14px}
+        @media(max-width:480px){.shot-wide{grid-column:1/-1}}
+    
+        /* ===== Polish layer v3 (added) ===== */
+        html{scroll-behavior:smooth}
+        section[id]{scroll-margin-top:84px}
+        ::selection{background:rgba(0,212,255,.3)}
+        :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+        .skip-link{top:-200px;transform:translateY(-100%)}
+        .skip-link:focus{top:12px;transform:none}
+        .hero-badge{align-self:center;width:fit-content;max-width:100%;margin-left:auto;margin-right:auto}
+        .verify-card,.dev-card,.shot-btn{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+        .verify-card:hover,.dev-card:hover{transform:translateY(-3px);border-color:var(--border-glow);box-shadow:0 12px 32px rgba(0,0,0,.35)}
+        .footer-col a:hover,.footer-legal a:hover{color:var(--accent)}
+        @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+        /* Gallery v3: asli size, koi crop nahi — phone = phone frame, extension = browser window frame (1280x800) */
+        .shot-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:28px}
+        .shot-btn{aspect-ratio:auto!important;display:block;background:#0a0f1a;padding:0;box-shadow:0 14px 40px rgba(0,0,0,.45)}
+        .shot-btn img{width:100%;height:auto;object-fit:contain}
+        .shot-phone .shot-btn{max-width:270px;margin:0 auto;border:6px solid #1b2433;border-radius:30px}
+        .shot-wide .shot-btn,.shot-popup .shot-btn{position:relative;padding-top:30px;border-radius:12px}
+        .shot-wide .shot-btn::before,.shot-popup .shot-btn::before{content:"";position:absolute;top:0;left:0;right:0;height:30px;background:#111a28;border-bottom:1px solid var(--border)}
+        .shot-wide .shot-btn::after,.shot-popup .shot-btn::after{content:"";position:absolute;top:10px;left:14px;width:10px;height:10px;border-radius:50%;background:#ff5f57;box-shadow:16px 0 #febc2e,32px 0 #28c840}
+        .shot-popup .shot-btn{max-width:340px;margin:0 auto}
+        .shot-wide{grid-column:span 2;order:2}.shot-popup{order:1}
+        .shot-empty{border:1px dashed var(--border);border-radius:16px;background:var(--bg-glass)}
+        .shot figcaption{font-weight:600;color:var(--text-primary);font-size:14px;margin-top:14px}
+        @media(max-width:560px){.shot-wide{grid-column:1/-1}.shot-grid{grid-template-columns:1fr 1fr;gap:18px}.shot-phone .shot-btn{border-width:4px;border-radius:22px}}
     </style>
 </head>
 <body>
@@ -1333,7 +1371,7 @@
                     </div>
                     <div class="ext-actions">
                         <a href="https://addons.mozilla.org/en-US/firefox/addon/ultimateprivacyshield/" target="_blank" rel="noopener" class="ext-btn primary">🦊 Download for Firefox</a>
-                        <a href="https://microsoftedge.microsoft.com/addons/detail/babasitaram-pro/dkbdndgepfpahokgdenpjfnmibkmekeb" target="_blank" rel="noopener" class="ext-btn primary">🟦 Download for Edge</a>
+                        <a href="https://microsoftedge.microsoft.com/addons/detail/0RDCK99NZNZ1" target="_blank" rel="noopener" class="ext-btn primary">🟦 Download for Edge</a>
                         <a href="https://github.com/ramhardamp/babasitaram-pro/releases#release-9.6.29" target="_blank" rel="noopener" download class="ext-btn gold">🌐 Download for Chrome</a>
                     </div>
                 </div>
@@ -1606,7 +1644,7 @@
                     </p>
                     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
                         <a href="https://addons.mozilla.org/en-US/firefox/addon/ultimateprivacyshield/" target="_blank" rel="noopener" class="ext-btn primary" style="padding: 14px 10px; font-size: 13px;">🦊 Download for Firefox</a>
-                        <a href="https://microsoftedge.microsoft.com/addons/detail/babasitaram-pro/dkbdndgepfpahokgdenpjfnmibkmekeb" target="_blank" rel="noopener" class="ext-btn primary" style="padding: 14px 10px; font-size: 13px;">🟦 Download for Edge</a>
+                        <a href="https://microsoftedge.microsoft.com/addons/detail/0RDCK99NZNZ1" target="_blank" rel="noopener" class="ext-btn primary" style="padding: 14px 10px; font-size: 13px;">🟦 Download for Edge</a>
                         <a href="https://github.com/ramhardamp/babasitaram-pro/releases#release-9.6.29" target="_blank" rel="noopener" download class="ext-btn gold" style="padding: 14px 10px; font-size: 13px;">🌐 Download for Chrome</a>
                     </div>
                 </div>
@@ -1777,70 +1815,16 @@
                 <p class="lang-hi active">ऐप और एक्सटेंशन को एक्शन में देखें</p>
                 <p class="lang-en">See the app &amp; extension in action</p>
             </div>
-            <div class="shot-tabs" role="group" aria-label="Screenshot filter">
-                <button type="button" class="shot-tab active" data-f="all" aria-pressed="true">All</button>
-                <button type="button" class="shot-tab" data-f="android" aria-pressed="false">📱 Android</button>
-                <button type="button" class="shot-tab" data-f="ext" aria-pressed="false">🌐 Extension</button>
+            <div class="shot-tabs" id="shotTabs" role="group" aria-label="Screenshot categories"></div>
+            <div class="shot-grid" id="shotGrid" aria-live="polite"></div>
+            <noscript><p class="verify-note">Screenshots देखने के लिए JavaScript चालू करें / Enable JavaScript to view screenshots.</p></noscript>
+            <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer" hidden>
+                <button type="button" class="lb-close" aria-label="Close">✕</button>
+                <button type="button" class="lb-nav lb-prev" aria-label="Previous">‹</button>
+                <img alt="" />
+                <button type="button" class="lb-nav lb-next" aria-label="Next">›</button>
+                <p class="lb-cap" id="lbCap"></p>
             </div>
-            <div class="shot-grid">
-                <figure class="shot animate-on-scroll" data-cat="android">
-                    <button type="button" class="shot-btn" aria-label="Password Vault (Android) — बड़ा देखें / enlarge">
-                        <span class="shot-ph" aria-hidden="true">📱</span>
-                        <img src="screenshots/android-01.png" alt="Password Vault (Android)" loading="lazy" decoding="async" width="360" height="760" onerror="this.remove()" />
-                    </button>
-                    <figcaption>Password Vault (Android)</figcaption>
-                </figure>
-                <figure class="shot animate-on-scroll" data-cat="android">
-                    <button type="button" class="shot-btn" aria-label="Add / Edit Password — बड़ा देखें / enlarge">
-                        <span class="shot-ph" aria-hidden="true">🔑</span>
-                        <img src="screenshots/android-02.png" alt="Add / Edit Password" loading="lazy" decoding="async" width="360" height="760" onerror="this.remove()" />
-                    </button>
-                    <figcaption>Add / Edit Password</figcaption>
-                </figure>
-                <figure class="shot animate-on-scroll" data-cat="android">
-                    <button type="button" class="shot-btn" aria-label="Security Settings — बड़ा देखें / enlarge">
-                        <span class="shot-ph" aria-hidden="true">🛡️</span>
-                        <img src="screenshots/android-03.png" alt="Security Settings" loading="lazy" decoding="async" width="360" height="760" onerror="this.remove()" />
-                    </button>
-                    <figcaption>Security Settings</figcaption>
-                </figure>
-                <figure class="shot animate-on-scroll" data-cat="android">
-                    <button type="button" class="shot-btn" aria-label="Digital Khata Ledger — बड़ा देखें / enlarge">
-                        <span class="shot-ph" aria-hidden="true">📒</span>
-                        <img src="screenshots/android-04.png" alt="Digital Khata Ledger" loading="lazy" decoding="async" width="360" height="760" onerror="this.remove()" />
-                    </button>
-                    <figcaption>Digital Khata Ledger</figcaption>
-                </figure>
-                <figure class="shot animate-on-scroll" data-cat="ext">
-                    <button type="button" class="shot-btn" aria-label="Monitor Dashboard — बड़ा देखें / enlarge">
-                        <span class="shot-ph" aria-hidden="true">📊</span>
-                        <img src="screenshots/ext-01.png" alt="Monitor Dashboard" loading="lazy" decoding="async" width="360" height="760" onerror="this.remove()" />
-                    </button>
-                    <figcaption>Monitor Dashboard</figcaption>
-                </figure>
-                <figure class="shot animate-on-scroll" data-cat="ext">
-                    <button type="button" class="shot-btn" aria-label="Ad & Tracker Blocking — बड़ा देखें / enlarge">
-                        <span class="shot-ph" aria-hidden="true">🚫</span>
-                        <img src="screenshots/ext-02.png" alt="Ad & Tracker Blocking" loading="lazy" decoding="async" width="360" height="760" onerror="this.remove()" />
-                    </button>
-                    <figcaption>Ad & Tracker Blocking</figcaption>
-                </figure>
-                <figure class="shot animate-on-scroll" data-cat="ext">
-                    <button type="button" class="shot-btn" aria-label="Focus Mode — बड़ा देखें / enlarge">
-                        <span class="shot-ph" aria-hidden="true">🎯</span>
-                        <img src="screenshots/ext-03.png" alt="Focus Mode" loading="lazy" decoding="async" width="360" height="760" onerror="this.remove()" />
-                    </button>
-                    <figcaption>Focus Mode</figcaption>
-                </figure>
-                <figure class="shot animate-on-scroll" data-cat="ext">
-                    <button type="button" class="shot-btn" aria-label="Emergency Burn — बड़ा देखें / enlarge">
-                        <span class="shot-ph" aria-hidden="true">🔥</span>
-                        <img src="screenshots/ext-04.png" alt="Emergency Burn" loading="lazy" decoding="async" width="360" height="760" onerror="this.remove()" />
-                    </button>
-                    <figcaption>Emergency Burn</figcaption>
-                </figure>
-            </div>
-            <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot" hidden><button type="button" class="lb-close" aria-label="Close">✕</button><img alt="" /></div>
         </div>
     </section>
 
@@ -2036,7 +2020,7 @@
                 <nav class="footer-col" aria-label="Products"><h4>Products</h4>
                     <a href="#apk">Android App</a>
                     <a href="https://addons.mozilla.org/en-US/firefox/addon/ultimateprivacyshield/" target="_blank" rel="noopener">Firefox Add-on</a>
-                    <a href="https://microsoftedge.microsoft.com/addons/detail/babasitaram-pro/dkbdndgepfpahokgdenpjfnmibkmekeb" target="_blank" rel="noopener">Edge Add-on</a>
+                    <a href="https://microsoftedge.microsoft.com/addons/detail/0RDCK99NZNZ1" target="_blank" rel="noopener">Edge Add-on</a>
                     <a href="#verify">Verify APK</a></nav>
                 <nav class="footer-col" aria-label="Resources"><h4>Resources</h4>
                     <a href="https://github.com/ramhardamp/babasitaram-pro" target="_blank" rel="noopener">GitHub</a>
@@ -2128,22 +2112,55 @@
 
 
     <script>
-        /* Screenshot filter + lightbox */
+        /* ===== Screenshots: SHOTS list me ek line add karo = naya screenshot ===== */
         (function(){
-            var tabs=document.querySelectorAll('.shot-tab'),shots=document.querySelectorAll('.shot'),lb=document.getElementById('lightbox');
-            tabs.forEach(function(t){t.addEventListener('click',function(){
-                tabs.forEach(function(x){var on=x===t;x.classList.toggle('active',on);x.setAttribute('aria-pressed',on)});
-                shots.forEach(function(s){s.hidden=!(t.dataset.f==='all'||s.dataset.cat===t.dataset.f)});
-            })});
-            function close(){lb.hidden=true}
-            shots.forEach(function(s){s.querySelector('.shot-btn').addEventListener('click',function(){
-                var im=s.querySelector('img'); if(!im) return; /* image abhi upload nahi hui */
-                lb.querySelector('img').src=im.src;lb.querySelector('img').alt=im.alt;lb.hidden=false;lb.querySelector('.lb-close').focus();
-            })});
-            lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('lb-close'))close()});
-            document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+            /* id = file ka naam (screenshots/<id>.png|webp|jpg). plat: 'phone' (mobile) | 'wide' (extension/browser, 1280x800) | 'popup' (chhota extension popup) */
+            var CATS=[
+                {k:'pm',   hi:'🔐 पासवर्ड मैनेजर', en:'🔐 Password Manager'},
+                {k:'shield',hi:'🛡️ Privacy Shield',  en:'🛡️ Privacy Shield'},
+                {k:'khata',hi:'📒 Digital Khata',    en:'📒 Digital Khata'}
+            ];
+            var SHOTS=[
+                {id:'pm-01',cat:'pm',plat:'phone',hi:'लॉक / PIN स्क्रीन',en:'Lock / PIN Screen'},
+                {id:'pm-02',cat:'pm',plat:'phone',hi:'Vault — पासवर्ड सूची',en:'Vault — Password List'},
+                {id:'pm-03',cat:'pm',plat:'phone',hi:'पासवर्ड जोड़ें / बदलें',en:'Add / Edit Password'},
+                {id:'pm-04',cat:'pm',plat:'phone',hi:'पासवर्ड विवरण',en:'Password Details'},
+                {id:'pm-05',cat:'pm',plat:'phone',hi:'सिक्योरिटी सेटिंग्स',en:'Security Settings'},
+                {id:'pm-06',cat:'pm',plat:'phone',hi:'Backup / Restore',en:'Backup / Restore'},
+                {id:'pm-web-01',cat:'pm',plat:'wide',hi:'ब्राउज़र पासवर्ड मैनेजर',en:'Browser Password Manager'},
+                {id:'pm-web-02',cat:'pm',plat:'wide',hi:'ब्राउज़र Vault',en:'Browser Vault'},
+                {id:'ext-01',cat:'shield',plat:'wide',hi:'Monitor डैशबोर्ड',en:'Monitor Dashboard'},
+                {id:'ext-02',cat:'shield',plat:'wide',hi:'Ad व Tracker ब्लॉकिंग',en:'Ad & Tracker Blocking'},
+                {id:'ext-03',cat:'shield',plat:'wide',hi:'Focus Mode',en:'Focus Mode'},
+                {id:'ext-04',cat:'shield',plat:'wide',hi:'Emergency Burn',en:'Emergency Burn'},
+                {id:'khata-01',cat:'khata',plat:'phone',hi:'Digital Khata होम',en:'Digital Khata Home'},
+                {id:'khata-02',cat:'khata',plat:'phone',hi:'Ledger / हिसाब',en:'Ledger'}
+            ];
+            var EXTS=['png','webp','jpg','jpeg'],grid=document.getElementById('shotGrid'),tabsEl=document.getElementById('shotTabs'),lb=document.getElementById('lightbox');
+            if(!grid)return;
+            var isEn=function(){return document.documentElement.lang==='en'};
+            var L=function(hi,en){return '<span class="lang-hi'+(isEn()?'':' active')+'">'+hi+'</span><span class="lang-en'+(isEn()?' active':'')+'">'+en+'</span>'};
+            function probe(s){return new Promise(function(res){var i=0;(function next(){if(i>=EXTS.length)return res(null);var src='screenshots/'+s.id+'.'+EXTS[i++],im=new Image();im.onload=function(){res(src)};im.onerror=next;im.src=src})()})}
+            Promise.all(SHOTS.map(probe)).then(function(r){
+                var found=SHOTS.map(function(s,i){return r[i]?Object.assign({src:r[i]},s):null}).filter(Boolean);
+                var cur='all',view=[],idx=0;
+                var cats=CATS.filter(function(c){return !found.length||found.some(function(s){return s.cat===c.k})});
+                function render(){
+                    tabsEl.innerHTML=[{k:'all',hi:'सभी',en:'All'}].concat(cats).map(function(c){return '<button type="button" class="shot-tab'+(c.k===cur?' active':'')+'" data-k="'+c.k+'" aria-pressed="'+(c.k===cur)+'">'+L(c.hi,c.en)+'</button>'}).join('');
+                    view=found.filter(function(s){return cur==='all'||s.cat===cur});
+                    if(!view.length){grid.innerHTML='<p class="shot-empty">'+L('📸 Screenshots जल्द ही जोड़े जाएँगे।','📸 Screenshots coming soon.')+'</p>';return}
+                    grid.innerHTML=view.map(function(s,i){return '<figure class="shot shot-'+s.plat+'"><button type="button" class="shot-btn" data-i="'+i+'" aria-label="'+s.en+'"><img src="'+s.src+'" alt="'+s.en+'" loading="lazy" decoding="async" /></button><figcaption>'+L(s.hi,s.en)+'</figcaption></figure>'}).join('');
+                }
+                function open(i){idx=(i+view.length)%view.length;var s=view[idx],im=lb.querySelector('img');im.src=s.src;im.alt=s.en;document.getElementById('lbCap').textContent=s.en;lb.hidden=false;lb.querySelector('.lb-close').focus()}
+                function close(){lb.hidden=true}
+                tabsEl.addEventListener('click',function(e){var b=e.target.closest('.shot-tab');if(b){cur=b.dataset.k;render()}});
+                grid.addEventListener('click',function(e){var b=e.target.closest('.shot-btn');if(b)open(+b.dataset.i)});
+                lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('lb-close'))close();else if(e.target.classList.contains('lb-prev'))open(idx-1);else if(e.target.classList.contains('lb-next'))open(idx+1)});
+                document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')open(idx-1);if(e.key==='ArrowRight')open(idx+1)});
+                render();
+            });
             var hb=document.getElementById('hamburger');
-            if(hb) hb.addEventListener('click',function(){hb.setAttribute('aria-expanded',hb.classList.contains('open'))});
+            if(hb)hb.addEventListener('click',function(){hb.setAttribute('aria-expanded',hb.classList.contains('open'))});
         })();
     </script>
 <script>try{document.getElementById('copyYear').textContent='2026'+(new Date().getFullYear()>2026?'–'+new Date().getFullYear():'')}catch(e){}</script>
