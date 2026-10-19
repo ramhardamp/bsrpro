@@ -1073,6 +1073,7 @@
         .shot-empty{border:1px dashed var(--border);border-radius:16px;background:var(--bg-glass)}
         .shot figcaption{font-weight:600;color:var(--text-primary);font-size:14px;margin-top:14px}
         @media(max-width:560px){.shot-wide{grid-column:1/-1}.shot-grid{grid-template-columns:1fr 1fr;gap:18px}.shot-phone .shot-btn{border-width:4px;border-radius:22px}}
+            .shot-count{display:inline-block;min-width:18px;margin-left:6px;padding:0 6px;border-radius:999px;background:rgba(255,255,255,.14);font-size:11px;line-height:18px}
     </style>
 </head>
 <body>
@@ -2112,46 +2113,45 @@
 
 
     <script>
-        /* ===== Screenshots: SHOTS list me ek line add karo = naya screenshot ===== */
+        /* ===== Screenshots v4: auto-discover. Files ko prefix-NN.png naam se screenshots/ me daalo, config ki zaroorat nahi ===== */
         (function(){
-            /* id = file ka naam (screenshots/<id>.png|webp|jpg). plat: 'phone' (mobile) | 'wide' (extension/browser, 1280x800) | 'popup' (chhota extension popup) */
             var CATS=[
-                {k:'pm',   hi:'🔐 पासवर्ड मैनेजर', en:'🔐 Password Manager'},
-                {k:'shield',hi:'🛡️ Privacy Shield',  en:'🛡️ Privacy Shield'},
-                {k:'khata',hi:'📒 Digital Khata',    en:'📒 Digital Khata'}
+                {k:'pmapp', hi:'🔐 पासवर्ड मैनेजर ऐप',       en:'🔐 Password Manager App',       p:['pm-app','pm','android','password','vault']},
+                {k:'pmext', hi:'🧩 पासवर्ड मैनेजर एक्सटेंशन', en:'🧩 Password Manager Extension', p:['pm-ext','pm-web']},
+                {k:'shield',hi:'🛡️ Privacy Shield',            en:'🛡️ Privacy Shield',            p:['ext','shield']},
+                {k:'khata', hi:'📒 Digital Khata',              en:'📒 Digital Khata',              p:['khata']}
             ];
-            var SHOTS=[
-                {id:'pm-01',cat:'pm',plat:'phone',hi:'लॉक / PIN स्क्रीन',en:'Lock / PIN Screen'},
-                {id:'pm-02',cat:'pm',plat:'phone',hi:'Vault — पासवर्ड सूची',en:'Vault — Password List'},
-                {id:'pm-03',cat:'pm',plat:'phone',hi:'पासवर्ड जोड़ें / बदलें',en:'Add / Edit Password'},
-                {id:'pm-04',cat:'pm',plat:'phone',hi:'पासवर्ड विवरण',en:'Password Details'},
-                {id:'pm-05',cat:'pm',plat:'phone',hi:'सिक्योरिटी सेटिंग्स',en:'Security Settings'},
-                {id:'pm-06',cat:'pm',plat:'phone',hi:'Backup / Restore',en:'Backup / Restore'},
-                {id:'pm-web-01',cat:'pm',plat:'wide',hi:'ब्राउज़र पासवर्ड मैनेजर',en:'Browser Password Manager'},
-                {id:'pm-web-02',cat:'pm',plat:'wide',hi:'ब्राउज़र Vault',en:'Browser Vault'},
-                {id:'ext-01',cat:'shield',plat:'wide',hi:'Monitor डैशबोर्ड',en:'Monitor Dashboard'},
-                {id:'ext-02',cat:'shield',plat:'wide',hi:'Ad व Tracker ब्लॉकिंग',en:'Ad & Tracker Blocking'},
-                {id:'ext-03',cat:'shield',plat:'wide',hi:'Focus Mode',en:'Focus Mode'},
-                {id:'ext-04',cat:'shield',plat:'wide',hi:'Emergency Burn',en:'Emergency Burn'},
-                {id:'khata-01',cat:'khata',plat:'phone',hi:'Digital Khata होम',en:'Digital Khata Home'},
-                {id:'khata-02',cat:'khata',plat:'phone',hi:'Ledger / हिसाब',en:'Ledger'}
-            ];
-            var EXTS=['png','webp','jpg','jpeg'],grid=document.getElementById('shotGrid'),tabsEl=document.getElementById('shotTabs'),lb=document.getElementById('lightbox');
+            /* Optional captions (id -> naam). Na ho to "Screenshot N" dikhega */
+            var CAP={'pm-01':['लॉक / PIN स्क्रीन','Lock / PIN Screen'],'pm-02':['Vault — पासवर्ड सूची','Vault — Password List'],'pm-03':['पासवर्ड जोड़ें / बदलें','Add / Edit Password'],'pm-04':['पासवर्ड विवरण','Password Details'],'pm-05':['सिक्योरिटी सेटिंग्स','Security Settings'],'pm-06':['Backup / Restore','Backup / Restore'],'pm-web-01':['ब्राउज़र पासवर्ड मैनेजर','Browser Password Manager'],'pm-web-02':['ब्राउज़र Vault','Browser Vault'],'ext-01':['Monitor डैशबोर्ड','Monitor Dashboard'],'ext-02':['Ad व Tracker ब्लॉकिंग','Ad & Tracker Blocking'],'ext-03':['Focus Mode','Focus Mode'],'ext-04':['Emergency Burn','Emergency Burn'],'khata-01':['Digital Khata होम','Digital Khata Home'],'khata-02':['Ledger / हिसाब','Ledger']};
+            var EXTS=['png','jpg','jpeg','webp','PNG','JPG'],MAXN=15,
+                grid=document.getElementById('shotGrid'),tabsEl=document.getElementById('shotTabs'),lb=document.getElementById('lightbox');
             if(!grid)return;
             var isEn=function(){return document.documentElement.lang==='en'};
             var L=function(hi,en){return '<span class="lang-hi'+(isEn()?'':' active')+'">'+hi+'</span><span class="lang-en'+(isEn()?' active':'')+'">'+en+'</span>'};
-            function probe(s){return new Promise(function(res){var i=0;(function next(){if(i>=EXTS.length)return res(null);var src='screenshots/'+s.id+'.'+EXTS[i++],im=new Image();im.onload=function(){res(src)};im.onerror=next;im.src=src})()})}
-            Promise.all(SHOTS.map(probe)).then(function(r){
-                var found=SHOTS.map(function(s,i){return r[i]?Object.assign({src:r[i]},s):null}).filter(Boolean);
+            function load(src){return new Promise(function(res){var im=new Image();im.onload=function(){res({src:src,w:im.naturalWidth,h:im.naturalHeight})};im.onerror=function(){res(null)};im.src=src})}
+            function tryBase(base){var i=0;return (function next(){if(i>=EXTS.length)return Promise.resolve(null);return load('screenshots/'+base+'.'+EXTS[i++]).then(function(r){return r||next()})})()}
+            /* prefix-01, -02 ... jab tak 2 lagataar miss na ho jaye (1 gap allowed) */
+            function scan(cat,prefix){var out=[],n=1,miss=0;return (function step(){
+                if(n>MAXN||miss>=2)return Promise.resolve(out);
+                var id=prefix+'-'+(n<10?'0'+n:n);
+                return tryBase(id).then(function(r){if(r){miss=0;out.push({id:id,n:n,cat:cat,g:(['pm','password','vault'].indexOf(prefix)>-1),src:r.src,w:r.w,h:r.h})}else miss++;n++;return step()})})()}
+            /* Optional: screenshots/screenshots.json = [{"file":"mera-naam.png","cat":"pm|shield|khata","hi":"..","en":".."}] — kisi bhi file naam ke liye */
+            function manifest(){return fetch('screenshots/screenshots.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():[]}).catch(function(){return []}).then(function(list){
+                return Promise.all((list||[]).map(function(m){return load('screenshots/'+m.file).then(function(r){return r?{id:m.file,cat:m.cat,g:(m.cat==='pm'),src:r.src,w:r.w,h:r.h,hi:m.hi,en:m.en}:null})}))}).then(function(a){return a.filter(Boolean)})}
+            var jobs=[];CATS.forEach(function(c){c.p.forEach(function(p){jobs.push(scan(c.k,p))})});
+            Promise.all([Promise.all(jobs),manifest()]).then(function(res){
+                var found=[].concat.apply([],res[0]).concat(res[1]);
+                var seen={};found=found.filter(function(s){if(seen[s.src])return false;seen[s.src]=1;return true});
+                found.forEach(function(s){if(s.g)s.cat=(s.w/s.h>=1.2)?'pmext':'pmapp'});
                 var cur='all',view=[],idx=0;
-                var cats=CATS.filter(function(c){return !found.length||found.some(function(s){return s.cat===c.k})});
+                function cap(s){var c=CAP[s.id];return s.hi||s.en?[s.hi||s.en,s.en||s.hi]:c||['Screenshot '+s.n,'Screenshot '+s.n]}
                 function render(){
-                    tabsEl.innerHTML=[{k:'all',hi:'सभी',en:'All'}].concat(cats).map(function(c){return '<button type="button" class="shot-tab'+(c.k===cur?' active':'')+'" data-k="'+c.k+'" aria-pressed="'+(c.k===cur)+'">'+L(c.hi,c.en)+'</button>'}).join('');
+                    tabsEl.innerHTML=[{k:'all',hi:'सभी',en:'All'}].concat(CATS).map(function(c){var cnt=found.filter(function(s){return c.k==='all'||s.cat===c.k}).length;return '<button type="button" class="shot-tab'+(c.k===cur?' active':'')+'" data-k="'+c.k+'" aria-pressed="'+(c.k===cur)+'">'+L(c.hi,c.en)+(cnt?' <span class="shot-count">'+cnt+'</span>':'')+'</button>'}).join('');
                     view=found.filter(function(s){return cur==='all'||s.cat===cur});
-                    if(!view.length){grid.innerHTML='<p class="shot-empty">'+L('📸 Screenshots जल्द ही जोड़े जाएँगे।','📸 Screenshots coming soon.')+'</p>';return}
-                    grid.innerHTML=view.map(function(s,i){return '<figure class="shot shot-'+s.plat+'"><button type="button" class="shot-btn" data-i="'+i+'" aria-label="'+s.en+'"><img src="'+s.src+'" alt="'+s.en+'" loading="lazy" decoding="async" /></button><figcaption>'+L(s.hi,s.en)+'</figcaption></figure>'}).join('');
+                    if(!view.length){grid.innerHTML='<p class="shot-empty">'+L('📸 इस प्रोडक्ट के screenshots जल्द ही जोड़े जाएँगे।','📸 Screenshots for this product are coming soon.')+'</p>';return}
+                    grid.innerHTML=view.map(function(s,i){var c=cap(s),plat=(s.w/s.h>=1.2)?'wide':'phone';return '<figure class="shot shot-'+plat+'"><button type="button" class="shot-btn" data-i="'+i+'" aria-label="'+c[1]+'"><img src="'+s.src+'" alt="'+c[1]+'" loading="lazy" decoding="async" width="'+s.w+'" height="'+s.h+'" /></button><figcaption>'+L(c[0],c[1])+'</figcaption></figure>'}).join('');
                 }
-                function open(i){idx=(i+view.length)%view.length;var s=view[idx],im=lb.querySelector('img');im.src=s.src;im.alt=s.en;document.getElementById('lbCap').textContent=s.en;lb.hidden=false;lb.querySelector('.lb-close').focus()}
+                function open(i){idx=(i+view.length)%view.length;var s=view[idx],im=lb.querySelector('img');im.src=s.src;im.alt=cap(s)[1];document.getElementById('lbCap').textContent=cap(s)[1];lb.hidden=false;lb.querySelector('.lb-close').focus()}
                 function close(){lb.hidden=true}
                 tabsEl.addEventListener('click',function(e){var b=e.target.closest('.shot-tab');if(b){cur=b.dataset.k;render()}});
                 grid.addEventListener('click',function(e){var b=e.target.closest('.shot-btn');if(b)open(+b.dataset.i)});
