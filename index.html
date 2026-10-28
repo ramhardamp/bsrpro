@@ -560,6 +560,8 @@
             transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .ext-card::before {
@@ -650,7 +652,7 @@
         .ext-stat .num { font-family: var(--mono); font-size: 17px; font-weight: 800; color: var(--accent); }
         .ext-stat .lbl { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; margin-top: 2px; }
 
-        .ext-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; position: relative; z-index: 1; }
+        .ext-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; position: relative; z-index: 1; margin-top: auto; }
         @media (max-width: 480px) { .ext-actions { grid-template-columns: 1fr; } }
 
         .ext-btn {
@@ -1419,7 +1421,42 @@
                     </div>
                 </div>
 
-                <!-- 3. GitHub Release — BABASITARAM PRO -->
+                <!-- 3. Location Guard BSRPRO -->
+                <div class="ext-card animate-on-scroll">
+                    <div class="ext-header">
+                        <div class="ext-icon">📍</div>
+                        <div class="ext-title">
+                            <h3>Location Guard BSRPRO</h3>
+                            <div class="version">v1.2.1 · Edge &amp; Chrome</div>
+                        </div>
+                        <span class="ext-badge new">NEW</span>
+                    </div>
+                    <p class="ext-desc lang-hi active">GPS/Geolocation Spoofing से अपनी असली location छिपाएँ — per-site control के साथ। Edge और Chrome के लिए Official Extension।</p>
+                    <p class="ext-desc lang-en">Hide your real location with GPS/geolocation spoofing — per-site control included. Official extension for Edge and Chrome.</p>
+                    <ul class="ext-features">
+                        <li class="lang-hi active">📍 Fake Geolocation (पूरी दुनिया में कहीं भी)</li>
+                        <li class="lang-hi active">🎚️ Privacy Levels (Fixed / Noisy / Random)</li>
+                        <li class="lang-hi active">🌐 Per-Site Whitelist / Blacklist</li>
+                        <li class="lang-hi active">⚡ Fast — No backend server</li>
+                        <li class="lang-en">📍 Fake Geolocation (anywhere in the world)</li>
+                        <li class="lang-en">🎚️ Privacy Levels (Fixed / Noisy / Random)</li>
+                        <li class="lang-en">🌐 Per-Site Whitelist / Blacklist</li>
+                        <li class="lang-en">⚡ Fast — No backend server</li>
+                    </ul>
+                    <div class="ext-stats">
+                        <div class="ext-stat"><div class="num">New</div><div class="lbl">Release</div></div>
+                        <div class="ext-stat"><div class="num">Free</div><div class="lbl">Price</div></div>
+                        <div class="ext-stat"><div class="num">v1.2.1</div><div class="lbl">Version</div></div>
+                    </div>
+                    <div class="ext-actions" style="grid-template-columns: 1fr 1fr; gap: 8px;">
+                        <a href="https://microsoftedge.microsoft.com/addons/detail/location-guard-bsrpro/hjffafjahdabgalpfnjpbcbhbnhmjbcj" target="_blank" rel="noopener" class="ext-btn primary">🟦 Download for Edge</a>
+                        <a href="https://github.com/ramhardamp/bsrpro/releases/download/v1.2.1/location-guard-bsrpro-chrome-edge-v1.2.2.zip" target="_blank" rel="noopener" download class="ext-btn gold">🌐 Download for Chrome</a>
+                        <a href="#" target="_blank" rel="noopener" class="ext-btn primary" style="grid-column: 1 / -1; opacity: 0.75; cursor: wait;">🦊 Download for Firefox (Coming Soon)</a>
+                        <a href="https://github.com/ramhardamp/bsrpro/releases#release-v1.2.1" target="_blank" rel="noopener" class="ext-btn" style="grid-column: 1 / -1; background: rgba(15,26,40,0.6); color: var(--text-primary); border: 1px solid var(--border); font-size: 12px;">📄 Release Notes</a>
+                    </div>
+                </div>
+
+                <!-- 4. GitHub Release — BABASITARAM PRO (Shield) -->
                 <div class="ext-card animate-on-scroll">
                     <div class="ext-header">
                         <div class="ext-icon">🐙</div>
@@ -1449,7 +1486,7 @@
                     </div>
                 </div>
 
-                <!-- 4. GitHub Release — Password Manager -->
+                <!-- 5. GitHub Release — Password Manager -->
                 <div class="ext-card animate-on-scroll">
                     <div class="ext-header">
                         <div class="ext-icon">🔐</div>
@@ -1476,73 +1513,6 @@
                     </div>
                     <div class="ext-actions" style="grid-template-columns: 1fr;">
                         <a href="https://github.com/ramhardamp/bsrpro/releases#release-v5.43.14" target="_blank" rel="noopener" class="ext-btn primary">🔐 Password Manager Release</a>
-                    </div>
-                </div>
-
-                <!-- 5. BSRPRO Digital Khata App — Android App -->
-                <div class="ext-card animate-on-scroll">
-                    <div class="ext-header">
-                        <div class="ext-icon">📒</div>
-                        <div class="ext-title">
-                            <h3>BSRPRO Digital Khata App</h3>
-                            <div class="version">TBD by developer · Android App</div>
-                        </div>
-                        <span class="ext-badge new">NEW</span>
-                    </div>
-                    <p class="ext-desc lang-hi active">दुकानदारों के लिए Smart Digital Khata — Customer Ledger, Udhaar/Jama tracking, Byaj wala Loan और WhatsApp reminder।</p>
-                    <p class="ext-desc lang-en">Smart digital ledger for shopkeepers — customer ledger, Udhaar/Jama tracking, interest-based loans, and WhatsApp reminders.</p>
-                    <ul class="ext-features">
-                        <li class="lang-hi active">📒 Customer Ledger + Full History</li>
-                        <li class="lang-hi active">📈 Simple + Compound Interest Loan</li>
-                        <li class="lang-hi active">💬 WhatsApp / SMS Reminder (7-day auto)</li>
-                        <li class="lang-hi active">📄 PDF Statement + JSON Backup</li>
-                        <li class="lang-en">📒 Customer Ledger + Full History</li>
-                        <li class="lang-en">📈 Simple + Compound Interest Loan</li>
-                        <li class="lang-en">💬 WhatsApp / SMS Reminder (7-day auto)</li>
-                        <li class="lang-en">📄 PDF Statement + JSON Backup</li>
-                    </ul>
-                    <div class="ext-stats">
-                        <div class="ext-stat"><div class="num">New</div><div class="lbl">Release</div></div>
-                        <div class="ext-stat"><div class="num">Offline</div><div class="lbl">Ready</div></div>
-                        <div class="ext-stat"><div class="num">TBD by developer</div><div class="lbl">Version</div></div>
-                    </div>
-                    <div class="ext-actions" style="grid-template-columns: 1fr;">
-                        <a href="https://github.com/ramhardamp/bsrpro/releases/download/V19.9.6/BSRPRO-DigitalKhata.apk" target="_blank" rel="noopener" class="ext-btn primary">📱 BSRPRO Digital Khata App Download</a>
-                    </div>
-                </div>
-
-                <!-- 6. Location Guard BSRPRO — Edge + Chrome (Firefox link coming soon) -->
-                <div class="ext-card animate-on-scroll" style="border-color: rgba(56, 189, 248, 0.5); box-shadow: 0 0 40px rgba(56, 189, 248, 0.12);">
-                    <div class="ext-header">
-                        <div class="ext-icon" style="filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.5));">📍</div>
-                        <div class="ext-title">
-                            <h3>Location Guard BSRPRO</h3>
-                            <div class="version" style="color: #7dd3fc;">v1.2.1 · Edge &amp; Chrome</div>
-                        </div>
-                        <span class="ext-badge new" style="background: linear-gradient(135deg, #38bdf8, #6366f1); box-shadow: 0 0 15px rgba(56,189,248,0.5); font-size: 11px; padding: 5px 12px;">NEW</span>
-                    </div>
-                    <p class="ext-desc lang-hi active">GPS/Geolocation Spoofing से अपनी असली location छिपाएँ — per-site control के साथ। Edge और Chrome के लिए Official Extension।</p>
-                    <p class="ext-desc lang-en">Hide your real location with GPS/geolocation spoofing — per-site control included. Official extension for Edge and Chrome.</p>
-                    <ul class="ext-features">
-                        <li class="lang-hi active">📍 Fake Geolocation (पूरी दुनिया में कहीं भी)</li>
-                        <li class="lang-hi active">🎚️ Privacy Levels (Fixed / Noisy / Random)</li>
-                        <li class="lang-hi active">🌐 Per-Site Whitelist / Blacklist</li>
-                        <li class="lang-hi active">⚡ Fast — No backend server</li>
-                        <li class="lang-en">📍 Fake Geolocation (anywhere in the world)</li>
-                        <li class="lang-en">🎚️ Privacy Levels (Fixed / Noisy / Random)</li>
-                        <li class="lang-en">🌐 Per-Site Whitelist / Blacklist</li>
-                        <li class="lang-en">⚡ Fast — No backend server</li>
-                    </ul>
-                    <div class="ext-stats" style="border-color: rgba(56, 189, 248, 0.3);">
-                        <div class="ext-stat"><div class="num" style="color: #7dd3fc;">New</div><div class="lbl">Release</div></div>
-                        <div class="ext-stat"><div class="num" style="color: #7dd3fc;">Free</div><div class="lbl">Price</div></div>
-                        <div class="ext-stat"><div class="num" style="color: #7dd3fc;">v1.2.1</div><div class="lbl">Version</div></div>
-                    </div>
-                    <div class="ext-actions" style="grid-template-columns: 1fr 1fr; gap: 8px;">
-                        <a href="https://microsoftedge.microsoft.com/addons/detail/location-guard-bsrpro/hjffafjahdabgalpfnjpbcbhbnhmjbcj" target="_blank" rel="noopener" class="ext-btn primary">🟦 Download for Edge</a>
-                        <a href="https://github.com/ramhardamp/bsrpro/releases/download/v1.2.1/location-guard-bsrpro-chrome-edge-v1.2.2.zip" target="_blank" rel="noopener" download class="ext-btn gold">🌐 Download for Chrome</a>
-                        <a href="#" target="_blank" rel="noopener" class="ext-btn primary" style="grid-column: 1 / -1; opacity: 0.75; cursor: wait;">🦊 Download for Firefox (Coming Soon)</a>
-                        <a href="https://github.com/ramhardamp/bsrpro/releases#release-v1.2.1" target="_blank" rel="noopener" class="ext-btn" style="grid-column: 1 / -1; background: rgba(15,26,40,0.6); color: var(--text-primary); border: 1px solid var(--border); font-size: 12px;">📄 Release Notes</a>
                     </div>
                 </div>
 
