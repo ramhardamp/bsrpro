@@ -1,148 +1,170 @@
-Privacy Policy — BABASITARAM PRO
-Last updated: October 2026
+Last updated: 25 October 2026 · Version: TBD by developer
+
 Applies to:
-•	BABASITARAM PRO — Ultimate Privacy Shield (v9.2.4)
-•	BABASITARAM PRO Password Manager (v5.43.8)
-•	BABASITARAM PRO Android App (APK)
-•	BABASITARAM PRO — Location Guard BSRPRO browser extension (v1.2.2)
+
+BABASITARAM PRO — Ultimate Privacy Shield (build 9.7.7; release tag: TBD by developer)
+BABASITARAM PRO Password Manager (version: TBD by developer)
+BSRPRO Digital Khata (version: TBD by developer) — separate data flow, see privacy.html
+BABASITARAM PRO Android App (APK)
 Developer: VIKRAM SINGH RAJPUT
 
-🔒 Our Commitment
-BABASITARAM PRO does not operate any backend server, and the developer does not collect, receive, or have access to any of your data.
-All settings, preferences, and statistics are stored locally on your device using the browser's built-in storage APIs (chrome.storage.local). This data never leaves your device unless you explicitly export it yourself.
-We do not collect:
-•	❌ Personal information (name, email, address, etc.)
-•	❌ Browsing history
-•	❌ Usage statistics
-•	❌ Analytics or telemetry
-•	❌ Cookies or credentials
-•	❌ Health, financial, or authentication data
-•	❌ Your real location or GPS data (the Location Guard BSRPRO extension never reads or stores it)
-No account is required. No tracking. No ads. 100% private.
+---
 
-📍 About Location Guard BSRPRO
-Location Guard BSRPRO lets you choose a location and reports that location to websites instead of your device's real location.
-•	The extension never reads, stores, or sends your real location.
-•	Only the location you choose yourself is saved, and it is saved only on your device.
-•	It changes only the browser's location feature (Geolocation API). It does not hide your IP address, so a website that estimates location from your IP can still see your general area.
-•	It does not run on browser-internal pages.
+## 🔒 Our Commitment
 
-📌 What Data Is Stored, And Where
-The following data is stored locally on your device using chrome.storage.local:
-Ultimate Privacy Shield and Password Manager
-Data Type	Purpose
-Settings & Preferences	To remember your chosen configuration (ad blocker, HTTPS, etc.)
-Whitelist / Fireproof Sites	To protect specific sites from cleaning
-Vault Sites	To password-protect sensitive sites
-PIN (hashed)	To unlock the Vault — stored locally, never transmitted
-Custom Block Rules	To remember element picker and CSS rules
-Time Limits	To track daily time spent per domain
-Activity Logs	To show recent activity in the popup
-Statistics	To display ads blocked, trackers blocked, etc.
-Location Guard BSRPRO
-Data Type	Purpose
-ON / OFF switch	To remember whether spoofing is active
-Chosen latitude and longitude	The location you picked, reported to websites when the switch is ON
-Accuracy value	The accuracy (in metres) you selected
-Place name	To show the name of your chosen place in the popup
-This data never leaves your device unless you explicitly use the Export Backup feature (Settings → Export Backup). Even then, the exported file is saved on your own device and is not transmitted to us. Removing an extension, or clearing its storage, deletes the data it saved.
+**BABASITARAM PRO does not operate any backend server, and the developer does not collect, receive, or have access to any of your data.**
 
-☁️ Browser Sync (Optional)
-If you enable the extension's "Cloud Sync" option:
-•	A small subset of your settings is stored using chrome.storage.sync
-•	This is operated by your browser vendor (Mozilla, Microsoft, or Google), not by us
-•	This only runs if you turn it on
-•	It only syncs between your own signed-in devices
-Location Guard BSRPRO does not use browser sync. Its data stays only in local storage.
+All settings, preferences, and statistics are stored **locally on your device** using the browser's built-in storage APIs (`chrome.storage.local`). This data never leaves your device unless you explicitly export it yourself.
 
-🌐 Network Requests These Extensions Make
-1. Filter List Updates (Automatic)
-The Ultimate Privacy Shield periodically downloads publicly published ad/tracker block-lists:
-•	EasyList (https://easylist.to/)
-•	EasyPrivacy (https://easylist.to/)
-•	uBlock Origin's Annoyances list (https://ublockorigin.com/)
-These are plain list downloads from their official hosts. No information about you or your browsing is sent.
-2. Breach Alert (Optional, User-Initiated)
-If you use the "Breach Alert" feature:
-•	The email address you type is sent directly to haveibeenpwned.com's public API
-•	This only happens when you press "Check"
-•	Only the email address you enter is sent — nothing else
-•	Never to us — we don't have any servers
-•	You must provide your own free HIBP API key (available at haveibeenpwned.com/API/Key)
-3. DNS-over-HTTPS (Optional)
-If you enable a DoH provider in Settings:
-•	Your browser's DNS resolution is routed through the provider you choose (e.g., Cloudflare, Google, Quad9)
-•	This uses your browser's native DoH support
-•	We do not proxy or see this traffic
-4. Map and Place Search (Location Guard BSRPRO only)
-The Location Guard BSRPRO popup shows a map and lets you search for a place. This happens only when you open the popup and use the map or search:
-•	Map tiles are loaded from tile.openstreetmap.org. If it is unavailable, the map automatically falls back to basemaps.cartocdn.com (CARTO) or server.arcgisonline.com (Esri). These requests contain the map area being shown.
-•	Place search and place-name lookup use nominatim.openstreetmap.org. These requests contain the text you typed, or the coordinates you chose to fix.
-•	Like any website, these services also receive standard technical data such as your IP address and browser details.
-•	These services are run by the OpenStreetMap Foundation, CARTO, and Esri, and are covered by their own privacy policies.
-•	Never to us — nothing is sent to the developer, and your real location is never part of these requests.
+We do **not** collect:
+- ❌ Personal information (name, email, address, etc.)
+- ❌ Browsing history
+- ❌ Usage statistics
+- ❌ Analytics or telemetry
+- ❌ Cookies or credentials
+- ❌ Health, financial, or authentication data
+- ❌ Location data
 
-🔑 Permissions Explained
-Ultimate Privacy Shield and Password Manager
-Permission	Why It's Needed
-storage	To save your settings/lists locally
-tabs	To know the current tab's URL for per-site features
-cookies, browsingData, history	Used only for Cookie Cleaner, Emergency Burn, and Fireproof features — all local, user-initiated
-declarativeNetRequest	To block ads/trackers at the network layer
-webNavigation	To detect page navigation for site-specific features
-idle	To trigger auto-cleanup when the browser is idle
-alarms	To schedule periodic filter list updates and nightly cleanup
-contextMenus	To add right-click menu items ("Block this site", "Pick element")
-host_permissions (<all_urls>)	Required so ad-blocking, site-lock, and element picker can run on any site you visit
-Location Guard BSRPRO
-Permission / Access	Why It's Needed
-storage	To save your chosen location and the ON/OFF switch on your device
-Content script on all websites (<all_urls> match)	Any website can ask for your location, so the extension must be present on every page, before the page's own scripts run, to answer with your chosen location. It handles only location requests. It does not read, copy, or send page content, forms, cookies, or passwords.
-Content script in the page context (MAIN world)	The browser's location feature lives in the page's own context, so the override must run there. It has no access to extension APIs.
-Location Guard BSRPRO does not request tabs, activeTab, scripting, cookies, history, or any other permission.
-All permissions are used exclusively for local functionality. No data is transmitted to the developer or to any server operated by the developer.
+**Privacy Shield and Password Manager: no account is required. Digital Khata requires an account (Firebase Authentication); see privacy.html.**
 
-🔗 Third Parties
-We do not sell, rent, or share any data, because we never receive any.
-The only third parties your browser ever talks to as a direct result of using these extensions are:
-Service	Purpose	When It Runs
-EasyList / EasyPrivacy	Filter list downloads	Automatically (periodic)
-uBlock Origin Annoyances	Filter list downloads	Automatically (periodic)
-haveibeenpwned.com	Breach Alert (optional)	Only when you press "Check"
-OpenStreetMap (tiles and Nominatim)	Map and place search in Location Guard BSRPRO	Only when you open its popup and use the map or search
-CARTO / Esri	Fallback map tiles in Location Guard BSRPRO	Only if OpenStreetMap tiles cannot be loaded
+---
 
-✅ Limited Use Disclosure
-The use of information received by BABASITARAM PRO extensions, including any information obtained through browser APIs, adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements. Information is used only to provide the user-facing features described above. It is not transferred to others, not used for advertising, and not read by humans.
+## 📌 What Data Is Stored, And Where
 
-🧒 Children's Privacy
-These extensions do not knowingly collect any personal information from children under 13. They are designed for general use and do not target children.
+The following data is stored **locally on your device** using `chrome.storage.local`:
 
-📝 Changes to This Policy
+| Data Type | Purpose |
+|---|---|
+| **Settings & Preferences** | To remember your chosen configuration (ad blocker, HTTPS, etc.) |
+| **Whitelist / Fireproof Sites** | To protect specific sites from cleaning |
+| **Vault Sites** | To password-protect sensitive sites |
+| **PIN (hashed)** | To unlock the Vault — stored locally, never transmitted |
+| **Custom Block Rules** | To remember element picker and CSS rules |
+| **Time Limits** | To track daily time spent per domain |
+| **Activity Logs** | To show recent activity in the popup |
+| **Statistics** | To display ads blocked, trackers blocked, etc. |
+
+This data **never leaves your device** unless you explicitly use the **Export Backup** feature (Settings → Export Backup). Even then, the exported file is saved on your own device and is not transmitted to us.
+
+---
+
+## ☁️ Browser Sync
+
+**Privacy Shield 9.7.7 has no Cloud Sync / browser sync.** Its code does not use `chrome.storage.sync` and its manifest has no sync permission. Cloud Sync was removed in version 9.7.0; all Privacy Shield data stays in local storage. Versions older than 9.7.0: TBD by developer. Password Manager sync behaviour: TBD by developer.
+
+---
+
+## 🌐 Network Requests Privacy Shield Makes (build 9.7.7)
+
+*Source: the developer's build record for 9.7.7 (scan of the 9.7.7 source for `fetch`, XMLHttpRequest, `sendBeacon`, WebSocket, EventSource, `new Image`, `setUninstallURL`). The 9.7.7 source itself was not re-reviewed for this website update.*
+
+### 1. Filter List Updates (Automatic)
+Downloaded when the extension starts and on a timer:
+
+- **EasyList** — `https://easylist.to/easylist/easylist.txt`
+- **EasyPrivacy** — `https://easylist.to/easylist/easyprivacy.txt`
+- **uBlock Origin Annoyances** — `https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt`
+
+Plain GET downloads. No data about you or your browsing is sent in the request, but the hosts (easylist.to, GitHub) can see your IP address and browser User-Agent, as with any download.
+
+### 2. New Tab saved-site logos
+From 9.7.7 the logo of a saved site comes from that site's own `/favicon.ico` (or a letter avatar). Earlier versions used Google and DuckDuckGo icon services, which received each saved site's domain; removed in 9.7.7.
+
+### 3. Breach Check (link only)
+- The "Open haveibeenpwned.com" button only opens the website in a tab.
+- The extension does not collect or send any email and has no API key. No HIBP API request is made.
+- An email-based "Breach Alert" is **not** part of 9.7.7 (older versions: TBD by developer).
+
+### 4. DNS-over-HTTPS setting
+- Default **off**. Choices: Off, Cloudflare, Google, Quad9.
+- **The extension does not set your DNS itself.** It saves your choice and opens your browser's own settings page (Chrome: `chrome://settings/security`; Firefox: `about:preferences#privacy`). You then choose "Use secure DNS" in the browser.
+
+### 5. Links that open only when you click
+haveibeenpwned.com (breach button), `ramhardamp.github.io/bsrpro` (developer page) and your chosen search engine from the New Tab search box.
+
+### No analytics or telemetry
+The 9.7.7 code scan found no analytics, telemetry or crash-report endpoint (no `sendBeacon`, WebSocket, EventSource or `setUninstallURL`) and no external fonts, scripts, stylesheets or images in the extension pages. This is a statement about the source code scan; store listings are separate.
+
+---
+
+## 🔑 Permissions Explained
+
+*General description. The exact permission list of build 9.7.7 is in its `manifest.json` (list for this build: TBD by developer).*
+
+| Permission | Why It's Needed |
+|---|---|
+| `storage` | To save your settings/lists locally |
+| `tabs` | To know the current tab's URL for per-site features |
+| `cookies`, `browsingData`, `history` | Used only for Cookie Cleaner, Emergency Burn, and Fireproof features — all local, user-initiated |
+| `declarativeNetRequest` | To block ads/trackers at the network layer |
+| `webNavigation` | To detect page navigation for site-specific features |
+| `idle` | To trigger auto-cleanup when the browser is idle |
+| `alarms` | To schedule periodic filter list updates and nightly cleanup |
+| `contextMenus` | To add right-click menu items ("Block this site", "Pick element") |
+| `host_permissions` (`<all_urls>`) | Required so ad-blocking, site-lock, and element picker can run on any site you visit |
+
+**Permissions are used for the features described in privacy.html. For network requests, see privacy.html ("Network Requests", Android section).**
+
+---
+
+## 🔗 Third Parties
+
+**We do not sell, rent, or share any data, because we never receive any.**
+
+The only third parties your browser ever talks to as a direct result of using this extension are:
+
+| Service | Purpose | When It Runs |
+|---|---|---|
+| EasyList / EasyPrivacy | Filter list downloads | Automatically (periodic) |
+| uBlock Origin Annoyances | Filter list downloads | Automatically (periodic) |
+| haveibeenpwned.com | Opened as a website only (breach button) | Only when you click the button |
+| The saved site itself (`/favicon.ico`) | New Tab saved-site logo (9.7.7) | When the New Tab page shows a saved site |
+
+---
+
+## 🧒 Children's Privacy
+
+This extension does not knowingly collect any personal information from children under 13. The extension is designed for general use and does not target children.
+
+---
+
+## 📝 Changes to This Policy
+
 If this policy changes, the updated version will be included with the next extension update and posted to:
-https://github.com/ramhardamp/babasitaram-pro
+
+[https://github.com/ramhardamp/babasitaram-pro](https://github.com/ramhardamp/babasitaram-pro)
+
 The "Last updated" date at the top of this page will also be revised.
 
-📬 Contact
+---
+
+## 📬 Contact
+
 Questions about this policy:
-📧 babasitarampro@gmail.com
-Developer: VIKRAM SINGH RAJPUT GitHub: https://github.com/ramhardamp/babasitaram-pro Website: https://ramhardamp.github.io/bsrpro/
 
-✅ Summary
-Question	Answer
-Do you collect my data?	❌ No
-Do you store my data on your servers?	❌ No
-Do you sell my data?	❌ No
-Do you share my data?	❌ No
-Do you use analytics or telemetry?	❌ No
-Is my data stored locally?	✅ Yes
-Can I export my data?	✅ Yes (Settings → Export Backup)
-Can I delete my data?	✅ Yes (uninstall the extension)
-Is my PIN transmitted anywhere?	❌ Never
-Is my browsing history sent anywhere?	❌ Never
-Does Breach Alert send data to you?	❌ No — it goes directly to HIBP
-Does Location Guard BSRPRO read my real location?	❌ Never
-Does Location Guard BSRPRO send anything to you?	❌ No — map and search requests go directly to OpenStreetMap, CARTO, or Esri
-Does Location Guard BSRPRO hide my IP address?	❌ No — it changes only the browser's location feature
+📧 **babasitarampro@gmail.com**
 
-BABASITARAM PRO is, and always will be, 100% free. No paywalls, no locked features, no telemetry, no tracking. Your privacy is the product — not you.
+**Developer:** VIKRAM SINGH RAJPUT  
+**GitHub:** [https://github.com/ramhardamp/babasitaram-pro](https://github.com/ramhardamp/babasitaram-pro)
+
+---
+
+## ✅ Summary
+
+| Question | Answer |
+|---|---|
+| Do you collect my data? | ❌ **No** |
+| Do you store my data on your servers? | ❌ **No** |
+| Do you sell my data? | ❌ **No** |
+| Do you share my data? | ❌ **No** |
+| Do you use analytics or telemetry? | ❌ **No** |
+| Is my data stored locally? | ✅ **Yes** |
+| Can I export my data? | ✅ **Yes** (Settings → Export Backup) |
+| Can I delete my data? | ✅ **Yes** (uninstall the extension) |
+| Is my PIN transmitted anywhere? | ❌ **Never** |
+| Is my browsing history sent anywhere? | ❌ **Never** |
+| Does the Breach Check button send data to you? | ❌ **No** — it only opens haveibeenpwned.com; no email is collected or sent |
+
+---
+
+**BABASITARAM PRO is, and always will be, 100% free. No paywalls, no locked features, no telemetry, no tracking. Your privacy is the product — not you.**

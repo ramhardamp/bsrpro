@@ -7,6 +7,42 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## Privacy Shield 9.6.13 – 9.7.7 (from the developer's build record, 2026-10-28)
+
+Dates of individual releases: TBD by developer. 9.2.5 – 9.6.12: not documented (TBD by developer).
+
+### 9.7.7
+- Privacy: New Tab saved-site logos no longer come from Google / DuckDuckGo (they received each saved site's domain); only the site's own `/favicon.ico`, otherwise a letter avatar.
+- Removed the unused `filter-list-worker.js`; `filter-sync.js` and the worker are no longer web-accessible to websites.
+- DNS-over-HTTPS button now states that the extension does not set DNS itself; it only opens the browser settings (Firefox: `about:preferences#privacy`).
+
+### 9.7.6
+- Backup / Restore now includes Interface Theme (dark / light / system) and New Tab language (English / Hindi). The popup's last-open tab is runtime state and is not in the backup.
+
+### 9.7.5
+- Filter-list sync uses Chrome's real dynamic-rule limit (budget up to 28,000 of 30,000 rules; Firefox and older Chrome stay at 4,800). Previously about 4,800 rules in total.
+- Fixed incomplete rule sets when start-up sync, alarm sync and manual sync ran together; only one sync runs at a time.
+- Popup: "THIS SITE · ALL-TIME" row (Ads · Trackers · Total).
+
+### 9.7.4
+- Auto-fix for broken sites (default on, Settings → "Auto-fix broken sites"): lighter fix first, stronger after repeated problems within 15 minutes; Level 3 (Disable) is never automatic. Not applied to known ad/tracker hosts.
+- On-page "Site broken?" button is now off by default.
+- Fixed (Chrome + Firefox): inline scripts in the extension's own pages were blocked by CSP (e.g. "Continue anyway", theme). Moved to external files.
+- Firefox: popup Import opens in a tab; Chrome-only dev feed moved to a separate file not in the Firefox package.
+
+### 9.7.2
+- Backup now covers the full state (PIN hash + salt, timers, nightly clear, lists, trusted / fixed / disabled sites, HTTPS fallback, history retention, time limits, DoH, stats). After restore, timer alarms, nightly clear and network rules restart automatically. Old (v1) backups can be restored.
+
+### 9.7.0
+- Cloud Sync (Google account) removed; data is local only.
+- Breach Check only opens haveibeenpwned.com; the extension collects and sends no email.
+- Tracker totals restored; YouTube ad detection improved; 8 new YouTube-ad network rules; vault session honours `pinSessionMinutes`.
+
+### 9.6.13
+- Toolbar badge counts visible ad episodes reported by the page script, not individual network requests; YouTube detection cadence 500 ms; YouTube never calls `video.play()`; tab replacement/removal races handled.
+
+---
+
 ## [9.2.4] — 2026-09-09
 
 ### Fixed — Store Compliance (Critical)
@@ -73,3 +109,9 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 - Site Lock (PIN on all sites when idle)
 - Import / Export settings (universal JSON)
 - Activity log (last 10 entries)
+
+
+### Release link update — 2026-10-28
+- Updated the Privacy Shield Chrome download link to the supplied v9.7.7 ZIP.
+- Release: https://github.com/ramhardamp/bsrpro/releases/tag/V9.7.7
+- SHA-256 supplied (not independently recomputed here): `d61cf29f280be50192824e35ae93407c57a56ebd3da27e00747e1f21548cf23f`

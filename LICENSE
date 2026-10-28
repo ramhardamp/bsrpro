@@ -1,21 +1,39 @@
-MIT License
+BSRPRO / BABASITARAM PRO — Proprietary License
 
-Copyright (c) 2026 Vikram Singh Rajput and BABASITARAM PRO Contributors
+Copyright (c) 2025-2026 Vikram Singh Rajput. All Rights Reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Effective date of this license: 25 October 2026.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. No license granted. No permission is granted to use, copy, modify, merge,
+   publish, distribute, sublicense, sell, or create derivative works of this
+   software or its source code, except as expressly permitted in writing by
+   the copyright holder, or by the terms under which the official apps and
+   extensions are distributed to end users.
+
+2. Earlier versions. Copies of earlier versions that were distributed under
+   the MIT License before the effective date remain available to the people
+   who received them under that license. This license does not change the
+   terms on which those copies were received, and it does not apply
+   retroactively to them.
+
+3. Contributions. Portions contributed by third parties remain subject to the
+   terms under which they were contributed. Contributions submitted on or
+   after the effective date are covered by the terms in CONTRIBUTING.md.
+
+4. Third-party components. The software includes or relies on third-party
+   components that are licensed under their own terms (for example, the
+   Apache License 2.0). Those licenses continue to apply to those components,
+   and this license grants no rights in them. Third-party trademarks belong to
+   their respective owners.
+
+5. Name, logo and branding. The BABASITARAM PRO and BSRPRO names, logos and
+   branding are all rights reserved.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Contact: babasitarampro@gmail.com

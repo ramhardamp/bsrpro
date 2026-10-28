@@ -1,0 +1,8 @@
+# BABASITARAM PRO
+
+> Privacy Shield, Password Manager (browser extension and Android app) and Digital Khata. Proprietary software, all rights reserved. Privacy Shield build 9.7.7 (release tag TBD by developer); other products: version TBD by developer. Last updated: 25 October 2026.
+
+- [Security details](https://github.com/ramhardamp/babasitaram-pro/blob/main/SECURITY.md)
+- [Privacy policy](https://ramhardamp.github.io/bsrpro/privacy.html)
+- [Terms](https://ramhardamp.github.io/bsrpro/terms.html)
+- [Releases](https://github.com/ramhardamp/bsrpro/releases)
