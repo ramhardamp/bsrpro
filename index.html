@@ -1077,6 +1077,46 @@
         .shot figcaption{font-weight:600;color:var(--text-primary);font-size:14px;margin-top:14px}
         @media(max-width:560px){.shot-wide{grid-column:1/-1}.shot-grid{grid-template-columns:1fr 1fr;gap:18px}.shot-phone .shot-btn{border-width:4px;border-radius:22px}}
             .shot-count{display:inline-block;min-width:18px;margin-left:6px;padding:0 6px;border-radius:999px;background:rgba(255,255,255,.14);font-size:11px;line-height:18px}
+
+
+        /* ===== Consistent product-card layout: Privacy Shield, Password Manager, Location Guard ===== */
+        .extensions-grid > .ext-card.product-card {
+            height: 100%;
+            min-height: 635px;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card .ext-header { min-height: 72px; align-items: center; }
+        .product-card .ext-title h3 { min-height: 46px; display: flex; align-items: center; }
+        .product-card .ext-desc { min-height: 96px; }
+        .product-card .ext-features { min-height: 132px; }
+        .product-card .ext-stats { min-height: 76px; align-items: center; margin-top: auto; }
+        .product-card .ext-actions { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+        .product-card .ext-actions .ext-btn {
+            min-height: 72px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-wrap: anywhere;
+            word-break: normal;
+            line-height: 1.45;
+        }
+        .product-card .coming-soon-link { opacity: .72; cursor: not-allowed; }
+        .product-release-link { text-align: center; margin-top: 10px; font-size: 12px; position: relative; z-index: 1; }
+        .product-release-link a { display: inline-block; color: var(--text-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; transition: color .2s, border-color .2s; }
+        .product-release-link a:hover { color: var(--accent); border-color: var(--accent); }
+        @media (max-width: 1100px) {
+            .extensions-grid > .ext-card.product-card { min-height: 0; }
+            .product-card .ext-desc { min-height: 0; }
+            .product-card .ext-features { min-height: 0; }
+        }
+        @media (max-width: 560px) {
+            .product-card .ext-actions { grid-template-columns: 1fr; }
+            .product-card .ext-actions .ext-btn { min-height: 48px; }
+            .product-card .ext-title h3 { min-height: 0; }
+        }
+
     </style>
 </head>
 <body>
@@ -1357,7 +1397,7 @@
                 <!-- ROW 1: Store & Main Downloads -->
                 
                 <!-- 1. BABASITARAM PRO (Ultimate Privacy Shield) -->
-                <div class="ext-card animate-on-scroll">
+                <div class="ext-card animate-on-scroll product-card">
                     <div class="ext-header">
                         <div class="ext-icon">🛡️</div>
                         <div class="ext-title">
@@ -1391,7 +1431,7 @@
                 </div>
 
                 <!-- 2. BABASITARAM PRO Password Manager -->
-                <div class="ext-card animate-on-scroll">
+                <div class="ext-card animate-on-scroll product-card">
                     <div class="ext-header">
                         <div class="ext-icon">🔐</div>
                         <div class="ext-title">
@@ -1425,7 +1465,7 @@
                 </div>
 
                 <!-- 3. Location Guard BSRPRO -->
-                <div class="ext-card animate-on-scroll">
+                <div class="ext-card animate-on-scroll product-card">
                     <div class="ext-header">
                         <div class="ext-icon">📍</div>
                         <div class="ext-title">
@@ -1451,11 +1491,10 @@
                         <div class="ext-stat"><div class="num">Free</div><div class="lbl">Price</div></div>
                         <div class="ext-stat"><div class="num">v1.2.2</div><div class="lbl">Version</div></div>
                     </div>
-                    <div class="ext-actions" style="grid-template-columns: 1fr 1fr; gap: 8px;">
+                    <div class="ext-actions">
                         <a href="https://microsoftedge.microsoft.com/addons/detail/location-guard-bsrpro/hjffafjahdabgalpfnjpbcbhbnhmjbcj" target="_blank" rel="noopener" class="ext-btn primary">🟦 Download for Edge</a>
                         <a href="https://github.com/ramhardamp/bsrpro/releases/download/v1.2.2/location-guard-bsrpro-chrome-edge-v1.2.2.zip" target="_blank" rel="noopener" download class="ext-btn gold">🌐 Download for Chrome</a>
-                        <a href="#" class="ext-btn primary" style="grid-column: 1 / -1; opacity: 0.75; cursor: not-allowed;" aria-disabled="true" title="Firefox release is not available yet">🦊 Download for Firefox (Coming Soon)</a>
-                        <a href="https://github.com/ramhardamp/bsrpro/releases/tag/v1.2.2" target="_blank" rel="noopener" class="ext-btn" style="grid-column: 1 / -1; background: rgba(15,26,40,0.6); color: var(--text-primary); border: 1px solid var(--border); font-size: 12px;">📄 Release Notes</a>
+                        <a href="#" class="ext-btn primary coming-soon-link" aria-disabled="true" title="Firefox release is not available yet">🦊 Download for Firefox (Coming Soon)</a>
                     </div>
                 </div>
 
