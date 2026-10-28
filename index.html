@@ -652,6 +652,7 @@
         .ext-stat .num { font-family: var(--mono); font-size: 17px; font-weight: 800; color: var(--accent); }
         .ext-stat .lbl { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; margin-top: 2px; }
 
+        /* यहाँ margin-top: auto; ने सभी बटन्स को नीचे अलाइन किया है */
         .ext-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; position: relative; z-index: 1; margin-top: auto; }
         @media (max-width: 480px) { .ext-actions { grid-template-columns: 1fr; } }
 
@@ -1353,6 +1354,8 @@
 
             <div class="extensions-grid">
 
+                <!-- ROW 1: Store & Main Downloads -->
+                
                 <!-- 1. BABASITARAM PRO (Ultimate Privacy Shield) -->
                 <div class="ext-card animate-on-scroll">
                     <div class="ext-header">
@@ -1455,6 +1458,9 @@
                         <a href="https://github.com/ramhardamp/bsrpro/releases#release-v1.2.1" target="_blank" rel="noopener" class="ext-btn" style="grid-column: 1 / -1; background: rgba(15,26,40,0.6); color: var(--text-primary); border: 1px solid var(--border); font-size: 12px;">📄 Release Notes</a>
                     </div>
                 </div>
+
+
+                <!-- ROW 2: GitHub Releases (नीचे वाले कार्ड्स) -->
 
                 <!-- 4. GitHub Release — BABASITARAM PRO (Shield) -->
                 <div class="ext-card animate-on-scroll">
