@@ -652,7 +652,6 @@
         .ext-stat .num { font-family: var(--mono); font-size: 17px; font-weight: 800; color: var(--accent); }
         .ext-stat .lbl { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; margin-top: 2px; }
 
-        /* यहाँ margin-top: auto; ने सभी बटन्स को नीचे अलाइन किया है */
         .ext-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; position: relative; z-index: 1; margin-top: auto; }
         @media (max-width: 480px) { .ext-actions { grid-template-columns: 1fr; } }
 
@@ -1036,6 +1035,7 @@
         .dev-avatar{border-radius:50%;border:2px solid var(--border-glow);flex-shrink:0}
         .dev-info h3{font-size:22px;letter-spacing:1px}.dev-role{color:var(--text-secondary);font-size:14px;margin:6px 0 16px}
         .dev-actions{display:flex;gap:10px;flex-wrap:wrap}.dev-actions .ext-btn{padding:10px 16px;font-size:14px}
+        .dev-actions .github-btn{min-height:41px;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;white-space:nowrap}
         @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
         @media(max-width:560px){.dev-card{flex-direction:column;text-align:center}.dev-actions{justify-content:center}}
     
@@ -1079,42 +1079,59 @@
             .shot-count{display:inline-block;min-width:18px;margin-left:6px;padding:0 6px;border-radius:999px;background:rgba(255,255,255,.14);font-size:11px;line-height:18px}
 
 
-        /* ===== Consistent product-card layout: Privacy Shield, Password Manager, Location Guard ===== */
+        /* ===== Consistent product-card layout (UPDATED: Compact & 1-Line Buttons) ===== */
         .extensions-grid > .ext-card.product-card {
-            height: 100%;
-            min-height: 635px;
+            height: auto;
+            min-height: 0;
             display: flex;
             flex-direction: column;
+            padding: 18px 16px; /* Reduced padding for compact size */
         }
-        .product-card .ext-header { min-height: 72px; align-items: center; }
-        .product-card .ext-title h3 { min-height: 46px; display: flex; align-items: center; }
-        .product-card .ext-desc { min-height: 96px; }
-        .product-card .ext-features { min-height: 132px; }
-        .product-card .ext-stats { min-height: 76px; align-items: center; margin-top: auto; }
-        .product-card .ext-actions { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+        .product-card .ext-header { min-height: 0; align-items: center; margin-bottom: 12px; gap: 10px; }
+        .product-card .ext-icon { font-size: 32px; }
+        .product-card .ext-title h3 { min-height: 0; font-size: 16px; display: flex; align-items: center; margin-bottom: 4px; }
+        .product-card .ext-title .version { font-size: 10px; }
+        .product-card .ext-badge { font-size: 9px; padding: 4px 8px; }
+        .product-card .ext-desc { min-height: 0; font-size: 13px; line-height: 1.5; margin-bottom: 12px; }
+        .product-card .ext-features { min-height: 0; margin-bottom: 12px; }
+        .product-card .ext-features li { font-size: 12px; padding: 3px 0; }
+        .product-card .ext-stats { min-height: 0; align-items: center; padding: 10px 0; margin-bottom: 15px; gap: 4px; }
+        .product-card .ext-stat .num { font-size: 14px; }
+        .product-card .ext-stat .lbl { font-size: 9px; }
+        
+        /* Force 3 buttons to stay in 1 line on all devices */
+        .product-card .ext-actions { 
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 6px !important; 
+            margin-top: auto; 
+        }
         .product-card .ext-actions .ext-btn {
-            min-height: 72px;
-            height: 100%;
+            min-height: 42px !important;
+            height: auto !important;
+            padding: 6px 2px !important;
+            font-size: 11px !important; /* Smaller font to fit in mobile */
             display: flex;
             align-items: center;
             justify-content: center;
             overflow-wrap: anywhere;
             word-break: normal;
-            line-height: 1.45;
+            line-height: 1.2;
+            text-align: center;
         }
         .product-card .coming-soon-link { opacity: .72; cursor: not-allowed; }
         .product-release-link { text-align: center; margin-top: 10px; font-size: 12px; position: relative; z-index: 1; }
         .product-release-link a { display: inline-block; color: var(--text-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; transition: color .2s, border-color .2s; }
         .product-release-link a:hover { color: var(--accent); border-color: var(--accent); }
-        @media (max-width: 1100px) {
-            .extensions-grid > .ext-card.product-card { min-height: 0; }
-            .product-card .ext-desc { min-height: 0; }
-            .product-card .ext-features { min-height: 0; }
+
+        /* Desktop: keep all three main product cards on one tidy row. */
+        @media (min-width: 1101px) {
+            .extensions-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
         }
-        @media (max-width: 560px) {
-            .product-card .ext-actions { grid-template-columns: 1fr; }
-            .product-card .ext-actions .ext-btn { min-height: 48px; }
-            .product-card .ext-title h3 { min-height: 0; }
+        @media (min-width: 701px) and (max-width: 1100px) {
+            .extensions-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+        }
+        @media (max-width: 700px) {
+            .extensions-grid { grid-template-columns: 1fr; gap: 18px; }
         }
 
     </style>
@@ -2015,7 +2032,7 @@
                     <div class="dev-actions">
                         <a class="ext-btn primary" href="mailto:babasitarampro@gmail.com">✉️ babasitarampro@gmail.com</a>
                         <a class="ext-btn gold" href="https://github.com/ramhardamp/bsrpro/issues" target="_blank" rel="noopener">🐛 Report an Issue</a>
-                        <a class="ext-btn" href="https://github.com/ramhardamp/bsrpro" target="_blank" rel="noopener">GitHub</a>
+                        <a class="ext-btn primary github-btn" href="https://github.com/ramhardamp/bsrpro" target="_blank" rel="noopener">🐙 GitHub</a>
                     </div>
                 </div>
             </div>
